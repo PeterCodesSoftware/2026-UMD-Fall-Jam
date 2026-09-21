@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dpvqkwe1wxyiw"]
+
+[sub_resource type="TileSet" id="TileSet_mq7fr"]
+
+[node name="Game" type="Node" unique_id=1731743243]
+
+[node name="World" type="Node2D" parent="." unique_id=452784082]
+
+[node name="Map" type="TileMapLayer" parent="World" unique_id=2100791961]
+tile_set = SubResource("TileSet_mq7fr")
