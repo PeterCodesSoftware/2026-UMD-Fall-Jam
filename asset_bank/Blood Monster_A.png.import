@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcnsdxg457gf4"
-path="res://.godot/imported/far-mountains.png-d7a35b3551601361867f0ba03c6cca2a.ctex"
+uid="uid://bad7cn4o5j3yj"
+path="res://.godot/imported/Blood Monster_A.png-d741cc1e3e47541e334252fcf1f0e267.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset_packs/MountainsLayers/far-mountains.png"
-dest_files=["res://.godot/imported/far-mountains.png-d7a35b3551601361867f0ba03c6cca2a.ctex"]
+source_file="res://asset_bank/Blood Monster_A.png"
+dest_files=["res://.godot/imported/Blood Monster_A.png-d741cc1e3e47541e334252fcf1f0e267.ctex"]
 
 [params]
 

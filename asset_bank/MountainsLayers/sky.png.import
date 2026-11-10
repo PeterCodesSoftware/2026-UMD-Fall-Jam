@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bad7cn4o5j3yj"
-path="res://.godot/imported/Blood Monster_A.png-92b3e7c4726639507fd89a97db85356b.ctex"
+uid="uid://cidgla3oqkmoa"
+path="res://.godot/imported/sky.png-2856be2abb497daf65b0bec00668ec93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset_packs/Blood Monster_A.png"
-dest_files=["res://.godot/imported/Blood Monster_A.png-92b3e7c4726639507fd89a97db85356b.ctex"]
+source_file="res://asset_bank/MountainsLayers/sky.png"
+dest_files=["res://.godot/imported/sky.png-2856be2abb497daf65b0bec00668ec93.ctex"]
 
 [params]
 

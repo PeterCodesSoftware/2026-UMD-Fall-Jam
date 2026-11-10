@@ -10,3 +10,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l7jsa")
+
+[node name="Back" type="Button" parent="." unique_id=1648913477]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="_on_button_pressed"]

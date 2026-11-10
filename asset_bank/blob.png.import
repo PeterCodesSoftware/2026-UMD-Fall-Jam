@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba3vrbfym16f5"
-path="res://.godot/imported/Demon_A.png-185f84b772e5bbb00aa6b26c932c1dd2.ctex"
+uid="uid://bv1bwwy4hjerp"
+path="res://.godot/imported/blob.png-3268fe38417a7792690d888499c1a70b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset_packs/Demon_A.png"
-dest_files=["res://.godot/imported/Demon_A.png-185f84b772e5bbb00aa6b26c932c1dd2.ctex"]
+source_file="res://asset_bank/blob.png"
+dest_files=["res://.godot/imported/blob.png-3268fe38417a7792690d888499c1a70b.ctex"]
 
 [params]
 
