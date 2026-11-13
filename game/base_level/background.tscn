@@ -1,24 +1,24 @@
 [gd_scene format=3 uid="uid://bdhasv8ryf7po"]
 
-[ext_resource type="Texture2D" uid="uid://bcnsdxg457gf4" path="res://asset_bank/MountainsLayers/far-mountains.png" id="1_kjfnf"]
-[ext_resource type="Texture2D" uid="uid://cub65x0y0ym76" path="res://asset_bank/MountainsLayers/mountains.png" id="1_w65xo"]
+[ext_resource type="Texture2D" uid="uid://b5ax11vqoj3jg" path="res://asset_bank/mountain_far.png" id="1_kjfnf"]
+[ext_resource type="Texture2D" uid="uid://b11x3ti04x7df" path="res://asset_bank/mountain_close.png" id="2_l1hyh"]
 
 [node name="Background" type="Node2D" unique_id=1733257446]
 
 [node name="L2" type="Parallax2D" parent="." unique_id=1840288818]
 scroll_scale = Vector2(0.1, 0.1)
-repeat_size = Vector2(160, 0)
-repeat_times = 4
+repeat_size = Vector2(640, 0)
+repeat_times = 2
 
 [node name="FarMountains" type="Sprite2D" parent="L2" unique_id=936951483]
 position = Vector2(147, 35)
 texture = ExtResource("1_kjfnf")
 
 [node name="L1" type="Parallax2D" parent="." unique_id=1381996435]
-scroll_scale = Vector2(0.5, 0.5)
-repeat_size = Vector2(300, 0)
+scroll_scale = Vector2(0.25, 0.25)
+repeat_size = Vector2(640, 0)
 repeat_times = 2
 
 [node name="Mountains" type="Sprite2D" parent="L1" unique_id=724117320]
 position = Vector2(207, 71)
-texture = ExtResource("1_w65xo")
+texture = ExtResource("2_l1hyh")

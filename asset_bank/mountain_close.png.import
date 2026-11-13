@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bad7cn4o5j3yj"
-path="res://.godot/imported/Blood Monster_A.png-d741cc1e3e47541e334252fcf1f0e267.ctex"
+uid="uid://b11x3ti04x7df"
+path="res://.godot/imported/mountain_close.png-e04ba6c47e96877de969b264d67fdc65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset_bank/Blood Monster_A.png"
-dest_files=["res://.godot/imported/Blood Monster_A.png-d741cc1e3e47541e334252fcf1f0e267.ctex"]
+source_file="res://asset_bank/mountain_close.png"
+dest_files=["res://.godot/imported/mountain_close.png-e04ba6c47e96877de969b264d67fdc65.ctex"]
 
 [params]
 
