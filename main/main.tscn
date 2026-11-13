@@ -1,15 +1,27 @@
 [gd_scene format=3 uid="uid://dpvqkwe1wxyiw"]
 
 [ext_resource type="Script" uid="uid://cw4am3dvq42fd" path="res://main/main.gd" id="1_0xm2m"]
+[ext_resource type="Resource" uid="uid://ddwa87hy4d7xc" path="res://game/level_manager/level_manager.tres" id="2_pjrb6"]
+[ext_resource type="PackedScene" path="res://pause_menu/pause_menu.tscn" id="3_pause"]
+
+[ext_resource type="PackedScene" path="res://finished_menu/finished_menu.tscn" id="4_finished"]
 
 [node name="Main" type="Node" unique_id=1731743243]
+process_mode = 3
 script = ExtResource("1_0xm2m")
+level_manager = ExtResource("2_pjrb6")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1985296257]
 
-[node name="FadeRect" type="ColorRect" parent="." unique_id=1904528767]
+[node name="PauseMenu" parent="." instance=ExtResource("3_pause")]
+
+[node name="FinishedMenu" parent="." instance=ExtResource("4_finished")]
+
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="FadeRect" type="ColorRect" parent="FadeLayer" unique_id=1904528767]
 unique_name_in_owner = true
-z_index = 100
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
