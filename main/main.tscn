@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cw4am3dvq42fd" path="res://main/main.gd" id="1_0xm2m"]
 [ext_resource type="Resource" uid="uid://ddwa87hy4d7xc" path="res://game/level_manager/level_manager.tres" id="2_pjrb6"]
-[ext_resource type="PackedScene" path="res://pause_menu/pause_menu.tscn" id="3_pause"]
-
+[ext_resource type="PackedScene" path="res://game/pause_menu/pause_menu.tscn" id="3_pause"]
 [ext_resource type="PackedScene" path="res://finished_menu/finished_menu.tscn" id="4_finished"]
 
 [node name="Main" type="Node" unique_id=1731743243]
@@ -13,11 +12,11 @@ level_manager = ExtResource("2_pjrb6")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1985296257]
 
-[node name="PauseMenu" parent="." instance=ExtResource("3_pause")]
+[node name="PauseMenu" parent="." unique_id=1257811434 instance=ExtResource("3_pause")]
 
-[node name="FinishedMenu" parent="." instance=ExtResource("4_finished")]
+[node name="FinishedMenu" parent="." unique_id=2133045013 instance=ExtResource("4_finished")]
 
-[node name="FadeLayer" type="CanvasLayer" parent="."]
+[node name="FadeLayer" type="CanvasLayer" parent="." unique_id=1456902214]
 layer = 100
 
 [node name="FadeRect" type="ColorRect" parent="FadeLayer" unique_id=1904528767]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cswp0kahxd2h"]
 
 [ext_resource type="Script" uid="uid://blu41mpjjghdr" path="res://game/base_level/player/player.gd" id="1_cbqy2"]
-[ext_resource type="Texture2D" uid="uid://bv1bwwy4hjerp" path="res://asset_bank/blob.png" id="2_ged7h"]
+[ext_resource type="Texture2D" uid="uid://bv1bwwy4hjerp" path="res://game/base_level/player/blob.png" id="2_ged7h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cbqy2"]
 radius = 8.0

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bdhasv8ryf7po"]
 
-[ext_resource type="Texture2D" uid="uid://b5ax11vqoj3jg" path="res://asset_bank/mountain_far.png" id="1_kjfnf"]
-[ext_resource type="Texture2D" uid="uid://b11x3ti04x7df" path="res://asset_bank/mountain_close.png" id="2_l1hyh"]
+[ext_resource type="Texture2D" uid="uid://b5ax11vqoj3jg" path="res://game/base_level/background/mountain_far.png" id="1_u4meo"]
+[ext_resource type="Texture2D" uid="uid://b11x3ti04x7df" path="res://game/base_level/background/mountain_close.png" id="2_8ruqe"]
 
 [node name="Background" type="Node2D" unique_id=1733257446]
 
@@ -12,7 +12,7 @@ repeat_times = 2
 
 [node name="FarMountains" type="Sprite2D" parent="L2" unique_id=936951483]
 position = Vector2(147, 35)
-texture = ExtResource("1_kjfnf")
+texture = ExtResource("1_u4meo")
 
 [node name="L1" type="Parallax2D" parent="." unique_id=1381996435]
 scroll_scale = Vector2(0.25, 0.25)
@@ -21,4 +21,4 @@ repeat_times = 2
 
 [node name="Mountains" type="Sprite2D" parent="L1" unique_id=724117320]
 position = Vector2(207, 71)
-texture = ExtResource("2_l1hyh")
+texture = ExtResource("2_8ruqe")

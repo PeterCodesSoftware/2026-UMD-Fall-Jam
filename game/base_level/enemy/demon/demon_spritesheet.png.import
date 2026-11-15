@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://egni0s6aj5bl"
-path="res://.godot/imported/lunar_stones16x16.png-46635c7afd84c8fe9b36964df9bae010.ctex"
+uid="uid://cpxtqmry6fe6m"
+path="res://.godot/imported/demon_spritesheet.png-8d607f7464113674837c3648ea4fe929.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset_bank/lunar_stones16x16.png"
-dest_files=["res://.godot/imported/lunar_stones16x16.png-46635c7afd84c8fe9b36964df9bae010.ctex"]
+source_file="res://game/base_level/enemy/demon/demon_spritesheet.png"
+dest_files=["res://.godot/imported/demon_spritesheet.png-8d607f7464113674837c3648ea4fe929.ctex"]
 
 [params]
 

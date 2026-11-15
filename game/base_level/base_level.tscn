@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://fdi3424mp5e"]
 
 [ext_resource type="Script" uid="uid://7xeo7qfi16sk" path="res://game/base_level/base_level.gd" id="1_eb33g"]
-[ext_resource type="PackedScene" uid="uid://bdhasv8ryf7po" path="res://game/base_level/background.tscn" id="2_f0qoc"]
-[ext_resource type="Texture2D" uid="uid://egni0s6aj5bl" path="res://asset_bank/lunar_stones16x16.png" id="3_f0qoc"]
+[ext_resource type="PackedScene" uid="uid://bdhasv8ryf7po" path="res://game/base_level/background/background.tscn" id="2_f0qoc"]
+[ext_resource type="Texture2D" uid="uid://egni0s6aj5bl" path="res://game/base_level/lunar_stones16x16.png" id="3_f0qoc"]
 [ext_resource type="PackedScene" uid="uid://cswp0kahxd2h" path="res://game/base_level/player/player.tscn" id="4_52oan"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52oan"]

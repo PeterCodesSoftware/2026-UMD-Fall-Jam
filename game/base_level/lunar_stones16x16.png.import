@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv1bwwy4hjerp"
-path="res://.godot/imported/blob.png-3268fe38417a7792690d888499c1a70b.ctex"
+uid="uid://egni0s6aj5bl"
+path="res://.godot/imported/lunar_stones16x16.png-ad1b1b54f8d5616a8c15b84b9c28d477.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset_bank/blob.png"
-dest_files=["res://.godot/imported/blob.png-3268fe38417a7792690d888499c1a70b.ctex"]
+source_file="res://game/base_level/lunar_stones16x16.png"
+dest_files=["res://.godot/imported/lunar_stones16x16.png-ad1b1b54f8d5616a8c15b84b9c28d477.ctex"]
 
 [params]
 

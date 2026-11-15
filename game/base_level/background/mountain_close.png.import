@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpxtqmry6fe6m"
-path="res://.godot/imported/demon_spritesheet.png-c8c4b4f90e44fb29f0772d7eda927277.ctex"
+uid="uid://b11x3ti04x7df"
+path="res://.godot/imported/mountain_close.png-5b6627e9e260b05574dd5c9217179da0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset_bank/demon_spritesheet.png"
-dest_files=["res://.godot/imported/demon_spritesheet.png-c8c4b4f90e44fb29f0772d7eda927277.ctex"]
+source_file="res://game/base_level/background/mountain_close.png"
+dest_files=["res://.godot/imported/mountain_close.png-5b6627e9e260b05574dd5c9217179da0.ctex"]
 
 [params]
 

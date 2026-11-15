@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b11x3ti04x7df"
-path="res://.godot/imported/mountain_close.png-e04ba6c47e96877de969b264d67fdc65.ctex"
+uid="uid://b602fytaftbv"
+path="res://.godot/imported/monster_spritesheet.png-cf405fe2aaa37fe1eda12f1e1b7f47ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset_bank/mountain_close.png"
-dest_files=["res://.godot/imported/mountain_close.png-e04ba6c47e96877de969b264d67fdc65.ctex"]
+source_file="res://game/base_level/enemy/monster/monster_spritesheet.png"
+dest_files=["res://.godot/imported/monster_spritesheet.png-cf405fe2aaa37fe1eda12f1e1b7f47ec.ctex"]
 
 [params]
 
