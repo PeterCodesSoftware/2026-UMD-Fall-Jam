@@ -171,16 +171,26 @@ radius = 6.0
 [node name="Player" type="CharacterBody2D" unique_id=1184046591]
 collision_layer = 2
 script = ExtResource("1_cbqy2")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=473481296]
 shape = SubResource("CircleShape2D_cbqy2")
+metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2020813293]
 sprite_frames = SubResource("SpriteFrames_cbqy2")
-animation = &"charge_jump"
+animation = &"charge_attack"
+frame = 2
+frame_progress = 1.0
+metadata/_edit_lock_ = true
+
+[node name="BulletSpawn" type="Marker2D" parent="AnimatedSprite2D" unique_id=1523543244]
+position = Vector2(0, 2)
 
 [node name="BallShape" type="CollisionShape2D" parent="." unique_id=1379833396]
 shape = SubResource("CircleShape2D_mq0dr")
 disabled = true
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2024871333]
+metadata/_edit_lock_ = true

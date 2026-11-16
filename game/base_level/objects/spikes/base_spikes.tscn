@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://wt7sk6d2cs7e"]
+
+[ext_resource type="Script" uid="uid://b2wfxno534ttv" path="res://game/base_level/objects/spikes/base_spikes.gd" id="1_is5gw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mq0dr"]
+size = Vector2(16, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o57rc"]
+load_path = "res://.godot/imported/quartz_crystals.png-153bcb80d177d99207ab8fd7f3e570b1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mq0dr"]
+atlas = SubResource("CompressedTexture2D_o57rc")
+region = Rect2(0, 0, 80, 16)
+
+[node name="Spikes" type="Area2D" unique_id=1014692310]
+script = ExtResource("1_is5gw")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1162604899]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_mq0dr")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1017696035]
+texture = SubResource("AtlasTexture_mq0dr")
+metadata/_edit_lock_ = true

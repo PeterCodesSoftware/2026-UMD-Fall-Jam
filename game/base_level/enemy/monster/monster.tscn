@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b602fytaftbv" path="res://game/base_level/enemy/monster/monster_spritesheet.png" id="2_d65ro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mq0dr"]
+size = Vector2(23, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ie75"]
 atlas = ExtResource("2_d65ro")
@@ -201,7 +202,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mdc0s")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -304,12 +305,36 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d65ro"]
+size = Vector2(15, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ie75"]
+size = Vector2(16, 14)
+
 [node name="Monster" type="CharacterBody2D" unique_id=2058935485]
 script = ExtResource("1_gsujr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=421869923]
+[node name="HurtBox" type="CollisionShape2D" parent="." unique_id=421869923]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_mq0dr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1102515488]
+position = Vector2(9, -5)
 sprite_frames = SubResource("SpriteFrames_mq0dr")
-animation = &"glow"
+animation = &"slash_attack"
+frame = 4
+frame_progress = 0.28422126
+
+[node name="SlashAttackArea" type="Area2D" parent="." unique_id=334027033]
+metadata/_edit_lock_ = true
+
+[node name="HitBox" type="CollisionShape2D" parent="SlashAttackArea" unique_id=1701167360]
+position = Vector2(13, -5)
+shape = SubResource("RectangleShape2D_d65ro")
+
+[node name="BiteAttackArea" type="Area2D" parent="." unique_id=624745742]
+metadata/_edit_lock_ = true
+
+[node name="HitBox" type="CollisionShape2D" parent="BiteAttackArea" unique_id=918834068]
+position = Vector2(15, -2)
+shape = SubResource("RectangleShape2D_2ie75")

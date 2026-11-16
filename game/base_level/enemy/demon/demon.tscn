@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ciee28tjiiob7" path="res://game/base_level/enemy/demon/demon.gd" id="1_sw7en"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mq0dr"]
+size = Vector2(20, 20.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sw7en"]
 atlas = ExtResource("1_p6d5t")
@@ -290,12 +291,33 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3wno"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uagv5"]
+size = Vector2(22, 8)
+
 [node name="Demon" type="CharacterBody2D" unique_id=1299434570]
 script = ExtResource("1_sw7en")
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=477046222]
+[node name="HurtBox" type="CollisionShape2D" parent="." unique_id=477046222]
+position = Vector2(-1, 1.25)
 shape = SubResource("RectangleShape2D_mq0dr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1710093335]
 sprite_frames = SubResource("SpriteFrames_mq0dr")
-animation = &"slash_attack"
+animation = &"idle"
+metadata/_edit_lock_ = true
+
+[node name="SlashAttackArea" type="Area2D" parent="." unique_id=1763726078]
+
+[node name="HitBox" type="CollisionShape2D" parent="SlashAttackArea" unique_id=1041293418]
+position = Vector2(13, 5)
+shape = SubResource("RectangleShape2D_p3wno")
+
+[node name="DashAttackArea" type="Area2D" parent="." unique_id=846692254]
+
+[node name="HitBox" type="CollisionShape2D" parent="DashAttackArea" unique_id=342492040]
+position = Vector2(14, 6)
+shape = SubResource("RectangleShape2D_uagv5")

@@ -1,9 +1,19 @@
 [gd_scene format=3 uid="uid://bdhasv8ryf7po"]
 
+[ext_resource type="Texture2D" uid="uid://bdmp5uucdwa2e" path="res://game/base_level/background/starry_space.png" id="1_8ruqe"]
 [ext_resource type="Texture2D" uid="uid://b5ax11vqoj3jg" path="res://game/base_level/background/mountain_far.png" id="1_u4meo"]
 [ext_resource type="Texture2D" uid="uid://b11x3ti04x7df" path="res://game/base_level/background/mountain_close.png" id="2_8ruqe"]
 
 [node name="Background" type="Node2D" unique_id=1733257446]
+
+[node name="L3" type="Parallax2D" parent="." unique_id=1111283591]
+scroll_scale = Vector2(0.01, 0.01)
+repeat_size = Vector2(128, 128)
+repeat_times = 3
+
+[node name="StarrySpace" type="Sprite2D" parent="L3" unique_id=615449510]
+position = Vector2(63, -42)
+texture = ExtResource("1_8ruqe")
 
 [node name="L2" type="Parallax2D" parent="." unique_id=1840288818]
 scroll_scale = Vector2(0.1, 0.1)

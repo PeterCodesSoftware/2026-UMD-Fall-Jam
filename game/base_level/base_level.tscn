@@ -400,10 +400,13 @@ script = ExtResource("1_eb33g")
 
 [node name="Terrain" type="TileMapLayer" parent="." unique_id=536407189]
 tile_set = SubResource("TileSet_eb33g")
+metadata/_edit_lock_ = true
 
 [node name="Objects" type="Node2D" parent="." unique_id=1976893899]
+metadata/_edit_lock_ = true
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1022468989]
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1184046591 instance=ExtResource("4_52oan")]
 
@@ -419,6 +422,7 @@ offset_right = -4.0
 offset_bottom = 22.0
 grow_horizontal = 2
 theme_override_constants/separation = 6
+metadata/_edit_lock_ = true
 
 [node name="TimeLabel" type="Label" parent="HUD/TopBar" unique_id=1267875851]
 unique_name_in_owner = true
@@ -426,6 +430,7 @@ custom_minimum_size = Vector2(54, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "0.00s"
+metadata/_edit_lock_ = true
 
 [node name="ScoreLabel" type="Label" parent="HUD/TopBar" unique_id=1243117227]
 unique_name_in_owner = true
@@ -433,10 +438,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 10
 text = "Score: 0"
+metadata/_edit_lock_ = true
 
 [node name="Pause" type="Button" parent="HUD/TopBar" unique_id=1909900780]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Pause"
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="HUD/TopBar/Pause" to="." method="_on_pause_pressed"]

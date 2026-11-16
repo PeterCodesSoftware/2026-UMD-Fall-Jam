@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c5sxq36swekx3"]
+
+[ext_resource type="PackedScene" uid="uid://wt7sk6d2cs7e" path="res://game/base_level/objects/spikes/base_spikes.tscn" id="1_vvmjm"]
+[ext_resource type="Texture2D" uid="uid://2iddprr3me0x" path="res://game/base_level/objects/spikes/quartz_crystals.png" id="2_xjtmd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0vsi"]
+size = Vector2(7, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du7a2"]
+atlas = ExtResource("2_xjtmd")
+region = Rect2(16, 0, 16, 16)
+
+[node name="Spike2" unique_id=1014692310 instance=ExtResource("1_vvmjm")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="1" unique_id=411265691]
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_x0vsi")
+
+[node name="Sprite2D" parent="." index="2" unique_id=1017696035]
+texture = SubResource("AtlasTexture_du7a2")
