@@ -7,7 +7,7 @@ signal death_finished(enemy: Enemy)
 enum State { IDLE, CHASE, ATTACK, DEAD }
 
 @export var max_health: int = 10
-@export var detection_range: float = 190.0
+@export var detection_range: float = 240
 @export var move_speed: float = 42.0
 @export var attack_range: float = 86.0
 @export var close_attack_range: float = 35.0

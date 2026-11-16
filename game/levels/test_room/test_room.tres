@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LevelInfo" format=3 uid="uid://b6nm6l2ejv841"]
 
-[ext_resource type="Script" uid="uid://dl11tf2nsh87b" path="res://game/level_info/level_info.gd" id="1_hw3sr"]
-[ext_resource type="PackedScene" path="res://game/levels/test_room.tscn" id="2_level"]
+[ext_resource type="Script" uid="uid://dl11tf2nsh87b" path="res://game/level_manager/level_info.gd" id="1_hw3sr"]
+[ext_resource type="PackedScene" uid="uid://t1ioxmrgqco" path="res://game/levels/test_room/test_room.tscn" id="2_level"]
 
 [resource]
 script = ExtResource("1_hw3sr")

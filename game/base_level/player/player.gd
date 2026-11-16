@@ -19,8 +19,8 @@ var max_spin_speed: float = TAU
 var spin_response: float = 6.0
 
 var small_recoil: float = 10.0
-var medium_recoil: float = 60.0
-var large_recoil: float = 100.0
+var medium_recoil: float = 70.0
+var large_recoil: float = 130.0
 
 var is_attached: bool = false
 var is_ball: bool = false

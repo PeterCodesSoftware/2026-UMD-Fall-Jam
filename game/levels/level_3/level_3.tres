@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="LevelInfo" format=3 uid="uid://cttk2o08iu1xc"]
+
+[ext_resource type="Script" uid="uid://dl11tf2nsh87b" path="res://game/level_manager/level_info.gd" id="1_nh5oc"]
+
+[resource]
+script = ExtResource("1_nh5oc")
+metadata/_custom_type_script = "uid://dl11tf2nsh87b"

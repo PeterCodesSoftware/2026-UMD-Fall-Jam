@@ -9,6 +9,7 @@
 [node name="L3" type="Parallax2D" parent="." unique_id=1111283591]
 scroll_scale = Vector2(0.01, 0.01)
 repeat_size = Vector2(128, 128)
+autoscroll = Vector2(2, 0)
 repeat_times = 3
 
 [node name="StarrySpace" type="Sprite2D" parent="L3" unique_id=615449510]
