@@ -1,13 +1,13 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://b2gexpqbddwhh"]
 
 [ext_resource type="Script" uid="uid://de3ueg0w04rep" path="res://game/pause_menu/pause_menu.gd" id="1"]
 
-[node name="PauseMenu" type="CanvasLayer"]
+[node name="PauseMenu" type="CanvasLayer" unique_id=1261345685]
 process_mode = 3
 layer = 50
 script = ExtResource("1")
 
-[node name="Overlay" type="Control" parent="."]
+[node name="Overlay" type="Control" parent="." unique_id=518508911]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -16,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Dim" type="ColorRect" parent="Overlay"]
+[node name="Dim" type="ColorRect" parent="Overlay" unique_id=413584766]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +26,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.75)
 
-[node name="Center" type="CenterContainer" parent="Overlay"]
+[node name="Center" type="CenterContainer" parent="Overlay" unique_id=2111306087]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,33 +34,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="PanelContainer" parent="Overlay/Center"]
+[node name="Panel" type="PanelContainer" parent="Overlay/Center" unique_id=880132013]
 custom_minimum_size = Vector2(136, 0)
 layout_mode = 2
 
-[node name="Margin" type="MarginContainer" parent="Overlay/Center/Panel"]
+[node name="Margin" type="MarginContainer" parent="Overlay/Center/Panel" unique_id=1121951058]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 8
 
-[node name="Buttons" type="VBoxContainer" parent="Overlay/Center/Panel/Margin"]
+[node name="Buttons" type="VBoxContainer" parent="Overlay/Center/Panel/Margin" unique_id=529973633]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="Title" type="Label" parent="Overlay/Center/Panel/Margin/Buttons"]
+[node name="Title" type="Label" parent="Overlay/Center/Panel/Margin/Buttons" unique_id=607049303]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Paused"
 horizontal_alignment = 1
 
-[node name="Resume" type="Button" parent="Overlay/Center/Panel/Margin/Buttons"]
+[node name="Resume" type="Button" parent="Overlay/Center/Panel/Margin/Buttons" unique_id=876205310]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Resume"
 
-[node name="LevelSelect" type="Button" parent="Overlay/Center/Panel/Margin/Buttons"]
+[node name="LevelSelect" type="Button" parent="Overlay/Center/Panel/Margin/Buttons" unique_id=1352676279]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Level Select"

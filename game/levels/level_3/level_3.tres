@@ -1,7 +1,13 @@
 [gd_resource type="Resource" script_class="LevelInfo" format=3 uid="uid://cttk2o08iu1xc"]
 
+[ext_resource type="PackedScene" uid="uid://bhj3mwko5loax" path="res://game/levels/level_3/level_3.tscn" id="1_iom2p"]
 [ext_resource type="Script" uid="uid://dl11tf2nsh87b" path="res://game/level_manager/level_info.gd" id="1_nh5oc"]
 
 [resource]
 script = ExtResource("1_nh5oc")
+display_name = "Slither"
+scene = ExtResource("1_iom2p")
+star_1_time = 60.0
+star_2_time = 90.0
+star_3_time = 120.0
 metadata/_custom_type_script = "uid://dl11tf2nsh87b"

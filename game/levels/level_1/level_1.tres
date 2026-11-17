@@ -7,7 +7,7 @@
 script = ExtResource("2_cwbqj")
 display_name = "Welcome to the Moon"
 scene = ExtResource("1_dgay7")
-star_1_time = 5.0
-star_2_time = 15.0
-star_3_time = 40.0
+star_1_time = 25.0
+star_2_time = 40.0
+star_3_time = 80.0
 metadata/_custom_type_script = "uid://dl11tf2nsh87b"

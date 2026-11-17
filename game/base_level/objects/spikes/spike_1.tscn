@@ -15,6 +15,7 @@ region = Rect2(0, 0, 16, 16)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="1" unique_id=411265691]
 position = Vector2(-0.5, -2.5)
 shape = SubResource("RectangleShape2D_x0vsi")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" parent="." index="2" unique_id=1017696035]
 texture = SubResource("AtlasTexture_51dk6")

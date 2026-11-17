@@ -1,7 +1,13 @@
 [gd_resource type="Resource" script_class="LevelInfo" format=3 uid="uid://dlxrpcn4h4bgb"]
 
 [ext_resource type="Script" uid="uid://dl11tf2nsh87b" path="res://game/level_manager/level_info.gd" id="1_bwnj5"]
+[ext_resource type="PackedScene" uid="uid://cv405n0h0141s" path="res://game/levels/level_2/level_2.tscn" id="1_leftc"]
 
 [resource]
 script = ExtResource("1_bwnj5")
+display_name = "Into the Depths"
+scene = ExtResource("1_leftc")
+star_1_time = 37.0
+star_2_time = 50.0
+star_3_time = 90.0
 metadata/_custom_type_script = "uid://dl11tf2nsh87b"

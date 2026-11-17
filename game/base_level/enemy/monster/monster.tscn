@@ -309,7 +309,7 @@ animations = [{
 size = Vector2(15, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ie75"]
-size = Vector2(16, 14)
+size = Vector2(30, 15)
 
 [node name="Monster" type="CharacterBody2D" unique_id=2058935485]
 script = ExtResource("1_gsujr")
@@ -336,5 +336,5 @@ shape = SubResource("RectangleShape2D_d65ro")
 metadata/_edit_lock_ = true
 
 [node name="HitBox" type="CollisionShape2D" parent="BiteAttackArea" unique_id=918834068]
-position = Vector2(15, -2)
+position = Vector2(8, -1.5)
 shape = SubResource("RectangleShape2D_2ie75")

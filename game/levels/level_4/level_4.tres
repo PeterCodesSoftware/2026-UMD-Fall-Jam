@@ -1,7 +1,13 @@
 [gd_resource type="Resource" script_class="LevelInfo" format=3 uid="uid://b764ecng1vxsm"]
 
+[ext_resource type="PackedScene" uid="uid://cn354duhty81u" path="res://game/levels/level_4/level_4.tscn" id="1_gxh0h"]
 [ext_resource type="Script" uid="uid://dl11tf2nsh87b" path="res://game/level_manager/level_info.gd" id="1_msryl"]
 
 [resource]
 script = ExtResource("1_msryl")
+display_name = "Large Labrynth"
+scene = ExtResource("1_gxh0h")
+star_1_time = 110.0
+star_2_time = 160.0
+star_3_time = 240.0
 metadata/_custom_type_script = "uid://dl11tf2nsh87b"
