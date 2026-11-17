@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://tb31ul5xbhua"]
+
+[ext_resource type="Script" uid="uid://cyjxvsw61dm1v" path="res://main/menu_background.gd" id="1_klb3b"]
+[ext_resource type="Texture2D" uid="uid://bdmp5uucdwa2e" path="res://game/base_level/background/starry_space.png" id="1_kpmkf"]
+
+[node name="MenuBackground" type="Node2D" unique_id=1435320813]
+script = ExtResource("1_klb3b")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=630101259]
+scroll_offset = Vector2(232, 77)
+repeat_size = Vector2(128, 128)
+repeat_times = 6
+
+[node name="Stars" type="Sprite2D" parent="Parallax2D" unique_id=72140063]
+texture = ExtResource("1_kpmkf")

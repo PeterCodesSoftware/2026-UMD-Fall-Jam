@@ -12,9 +12,171 @@ grow_vertical = 2
 script = ExtResource("1_g3ho5")
 
 [node name="Back" type="Button" parent="." unique_id=787898721]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 42.0
+offset_bottom = 22.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 10
 text = "Back"
 
+[node name="Title" type="Label" parent="."]
+anchor_right = 1.0
+offset_left = 48.0
+offset_top = 3.0
+offset_right = -8.0
+offset_bottom = 23.0
+mouse_filter = 2
+theme_override_font_sizes/font_size = 14
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Settings" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 32.0
+offset_right = -20.0
+offset_bottom = -6.0
+theme_override_constants/separation = 8
+
+[node name="SFXRow" type="HBoxContainer" parent="Settings"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="Settings/SFXRow"]
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="Settings/SFXRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_mode = 0
+max_value = 100.0
+step = 1.0
+
+[node name="SFXValue" type="Label" parent="Settings/SFXRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "100"
+horizontal_alignment = 2
+
+[node name="MusicRow" type="HBoxContainer" parent="Settings"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="Settings/MusicRow"]
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Settings/MusicRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_mode = 0
+max_value = 100.0
+step = 1.0
+
+[node name="MusicValue" type="Label" parent="Settings/MusicRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "100"
+horizontal_alignment = 2
+
+[node name="ResetProgress" type="Button" parent="Settings"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 10
+text = "Reset Progress"
+
+[node name="Status" type="Label" parent="Settings"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 9
+horizontal_alignment = 1
+
+[node name="ResetWarning" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="ResetWarning"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.8)
+
+[node name="Center" type="CenterContainer" parent="ResetWarning"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="PanelContainer" parent="ResetWarning/Center"]
+custom_minimum_size = Vector2(216, 0)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="ResetWarning/Center/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="Content" type="VBoxContainer" parent="ResetWarning/Center/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="ResetWarning/Center/Panel/Margin/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Reset all progress?"
+horizontal_alignment = 1
+
+[node name="Warning" type="Label" parent="ResetWarning/Center/Panel/Margin/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Best times, stars and completion\nwill be erased.\nThis cannot be undone."
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="ResetWarning/Center/Panel/Margin/Content"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CancelReset" type="Button" parent="ResetWarning/Center/Panel/Margin/Content/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 10
+text = "Cancel"
+
+[node name="ConfirmReset" type="Button" parent="ResetWarning/Center/Panel/Margin/Content/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 10
+text = "Reset Progress"
+
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+

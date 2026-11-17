@@ -31,21 +31,15 @@ direction = 3
 [node name="Spike3" parent="Objects" parent_id_path=PackedInt32Array(1976893899) index="3" unique_id=938698635 instance=ExtResource("4_xcomv")]
 position = Vector2(-8, 360)
 
-[node name="Spike8" parent="Objects" parent_id_path=PackedInt32Array(1976893899) index="4" unique_id=1530010489 instance=ExtResource("4_xcomv")]
-position = Vector2(-72, 136)
-
-[node name="Spike4" parent="Objects" parent_id_path=PackedInt32Array(1976893899) index="5" unique_id=2409520 instance=ExtResource("5_4ttch")]
+[node name="Spike4" parent="Objects" parent_id_path=PackedInt32Array(1976893899) index="4" unique_id=2409520 instance=ExtResource("5_4ttch")]
 position = Vector2(8, 360)
 
-[node name="Spike9" parent="Objects" parent_id_path=PackedInt32Array(1976893899) index="6" unique_id=1503894873 instance=ExtResource("5_4ttch")]
-position = Vector2(-88, 136)
-
-[node name="Spike5" parent="Objects" parent_id_path=PackedInt32Array(1976893899) index="7" unique_id=1216668634 instance=ExtResource("6_ucqxv")]
+[node name="Spike5" parent="Objects" parent_id_path=PackedInt32Array(1976893899) index="5" unique_id=1216668634 instance=ExtResource("6_ucqxv")]
 position = Vector2(-99, 88)
 rotation = 3.1415927
 direction = 2
 
-[node name="Spike6" parent="Objects" parent_id_path=PackedInt32Array(1976893899) index="8" unique_id=565280987 instance=ExtResource("6_ucqxv")]
+[node name="Spike6" parent="Objects" parent_id_path=PackedInt32Array(1976893899) index="6" unique_id=565280987 instance=ExtResource("6_ucqxv")]
 position = Vector2(-137, 136)
 
 [node name="Monster" parent="Enemies" parent_id_path=PackedInt32Array(1022468989) index="0" unique_id=2058935485 instance=ExtResource("2_xeul2")]

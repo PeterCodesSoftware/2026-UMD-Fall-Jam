@@ -4,12 +4,25 @@ extends Node
 ## Ordered catalog shared by level select and level loading.
 @export var level_manager: LevelManager
 
+## Songs referenced here are also included in exported builds.
+@export var music_tracks: Array[AudioStream] = [
+	preload("res://main/music/stg_st001.ogg"),
+	preload("res://main/music/stg_st002.ogg"),
+	preload("res://main/music/stg_st003.ogg"),
+	preload("res://main/music/stg_st004.ogg"),
+	preload("res://main/music/stg_st005.ogg"),
+	preload("res://main/music/stg_st006.ogg"),
+]
+
+
 const MENU: PackedScene = preload("uid://cynvxuhs1ov1o")
 const LEVEL_SELECT: PackedScene = preload("uid://de7447pwxryl")
 const OPTIONS: PackedScene = preload("uid://c7kstde6cb5q8")
 const FADE_DURATION: float = 0.1
+const MUSIC_FADE_SECONDS: float = 3.0
 
 var progress: LevelProgress = LevelProgress.new()
+var audio_settings: AudioSettings = AudioSettings.new()
 var _current_screen: Node = null
 var _active_level_info: LevelInfo = null
 var _transitioning: bool = false
@@ -17,13 +30,23 @@ var _level_finished: bool = false
 var _restart_pending: bool = false
 var _transition_serial: int = 0
 var _pending_screen: Node
+var _last_music_index: int = -1
+var _music_length: float = 0.0
+var _music_base_volume: float = 1.0
+var _music_fade_gain: float = 1.0
 
+@onready var _music_player: AudioStreamPlayer = $MusicPlayer
+@onready var _menu_background: CanvasLayer = $MenuBackgroundLayer
 @onready var _fade_rect: ColorRect = %FadeRect
 @onready var _pause_menu: PauseMenu = $PauseMenu
 @onready var _finished_menu: FinishedMenu = $FinishedMenu
 
 
 func _ready() -> void:
+	audio_settings.load_settings()
+	_music_base_volume = _music_player.volume_linear
+	_music_player.finished.connect(_play_next_song)
+	_play_next_song()
 	progress.load_progress()
 	_pause_menu.resume_requested.connect(_resume_level)
 	_pause_menu.level_select_requested.connect(load_level_select)
@@ -39,6 +62,11 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"Respawn"):
 		get_viewport().set_input_as_handled()
 		respawn_level()
+		return
+	if event.is_action_pressed(&"Reveal Enemies"):
+		get_viewport().set_input_as_handled()
+		if not _transitioning and not _restart_pending:
+			(_current_screen as BaseLevel).toggle_enemy_reveal()
 		return
 	# Handle Pause before the GUI can consume Tab for focus navigation.
 	if event.is_action_pressed(&"Pause") and not _level_finished:
@@ -144,6 +172,7 @@ func _transition_to(scene: PackedScene, info: LevelInfo = null) -> void:
 		_current_screen.queue_free()
 	_active_level_info = info
 	_current_screen = next_screen
+	_update_menu_background()
 	_pending_screen = null
 	# Main keeps handling Pause while each screen obeys the paused tree.
 	_current_screen.process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -197,6 +226,7 @@ func _perform_respawn(expected_screen: Node, info: LevelInfo) -> void:
 	_transitioning = false
 	_active_level_info = info
 	_current_screen = fresh
+	_update_menu_background()
 	fresh.process_mode = Node.PROCESS_MODE_PAUSABLE
 	fresh.completed.connect(_on_level_completed)
 	fresh.pause_requested.connect(toggle_pause)
@@ -205,3 +235,45 @@ func _perform_respawn(expected_screen: Node, info: LevelInfo) -> void:
 	fresh.arm_start()
 	_fade_rect.hide()
 	_restart_pending = false
+
+
+func _play_next_song() -> void:
+	var index := _pick_next_music_index(_last_music_index, music_tracks.size())
+	if index < 0:
+		return
+	_last_music_index = index
+	_music_player.stream = music_tracks[index]
+	_music_length = _music_player.stream.get_length()
+	_music_fade_gain = 1.0
+	_music_player.volume_linear = _music_base_volume
+	_music_player.play()
+
+
+func _pick_next_music_index(previous: int, count: int) -> int:
+	if count <= 0:
+		return -1
+	if count == 1:
+		return 0
+	if previous < 0 or previous >= count:
+		return randi_range(0, count - 1)
+	# Uniformly choose among all other tracks without retry loops.
+	var index := randi_range(0, count - 2)
+	return index + 1 if index >= previous else index
+
+
+func _process(_delta: float) -> void:
+	if not _music_player.playing or _music_player.stream_paused or _music_length <= 0.0:
+		return
+	# Audio playback follows real time, unlike delta during victory slow motion.
+	var position := _music_player.get_playback_position() + AudioServer.get_time_since_last_mix()
+	var remaining := maxf(_music_length - position, 0.0)
+	var duration := minf(MUSIC_FADE_SECONDS, _music_length)
+	# Never brighten again because the audio clock advanced in chunks.
+	_music_fade_gain = minf(_music_fade_gain, clampf(remaining / duration, 0.0, 1.0))
+	_music_player.volume_linear = _music_base_volume * _music_fade_gain
+
+
+func _update_menu_background() -> void:
+	var show_background := not _current_screen is BaseLevel
+	_menu_background.visible = show_background
+	_menu_background.process_mode = Node.PROCESS_MODE_INHERIT if show_background else Node.PROCESS_MODE_DISABLED

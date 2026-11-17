@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="2026 UMD Fall Jam"
+config/name="2027"
 run/main_scene="uid://dpvqkwe1wxyiw"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://cftvgxayfd3mo"
+config/icon="uid://cftvgxayfd3mo"
 
 [audio]
 

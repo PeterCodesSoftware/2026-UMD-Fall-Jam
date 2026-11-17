@@ -7,7 +7,7 @@
 script = ExtResource("1_msryl")
 display_name = "Large Labrynth"
 scene = ExtResource("1_gxh0h")
-star_1_time = 110.0
+star_1_time = 240.0
 star_2_time = 160.0
-star_3_time = 240.0
+star_3_time = 110.0
 metadata/_custom_type_script = "uid://dl11tf2nsh87b"

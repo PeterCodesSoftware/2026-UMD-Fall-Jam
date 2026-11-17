@@ -6,6 +6,8 @@ signal death_finished(enemy: Enemy)
 
 enum State { IDLE, CHASE, ATTACK, DEAD }
 
+const LOST_SIGHT_TICKS: int = 4
+
 @export var max_health: int = 10
 @export var detection_range: float = 240
 @export var move_speed: float = 42.0
@@ -19,7 +21,10 @@ var health: int
 var is_dead: bool = false
 var player: Node2D
 var state: State = State.IDLE
+## Actual result of the latest shared sight check, separate from pursuit memory.
 var player_visible: bool = false
+var has_aggro: bool = false
+var _missed_detection_ticks: int = 0
 var _cooldown: float = 0.0
 var _attack_elapsed: float = 0.0
 var _attack_direction: Vector2 = Vector2.RIGHT
@@ -59,6 +64,7 @@ func _ready() -> void:
 
 func setup(target: Node2D) -> void:
 	player = target
+	_clear_aggro()
 
 
 ## Called exclusively by BaseLevel's shared 0.5-second detection clock.
@@ -66,27 +72,43 @@ func detect_player() -> void:
 	if is_dead:
 		return
 	player_visible = false
-	if is_instance_valid(player) and not bool(player.get("is_dead")):
+	if not is_instance_valid(player) or bool(player.get("is_dead")):
+		_clear_aggro()
+	else:
 		if global_position.distance_to(player.global_position) <= detection_range:
 			var query := PhysicsRayQueryParameters2D.create(global_position, player.global_position, 1, [get_rid()])
 			player_visible = get_world_2d().direct_space_state.intersect_ray(query).is_empty()
+		if player_visible:
+			has_aggro = true
+			_missed_detection_ticks = 0
+		elif has_aggro:
+			_missed_detection_ticks += 1
+			if _missed_detection_ticks >= LOST_SIGHT_TICKS:
+				has_aggro = false
 	if state != State.ATTACK:
-		state = State.CHASE if player_visible else State.IDLE
-		if not player_visible:
+		state = State.CHASE if has_aggro else State.IDLE
+		if not has_aggro:
 			velocity = Vector2.ZERO
 			_play(&"idle")
 
 
+func _clear_aggro() -> void:
+	player_visible = false
+	has_aggro = false
+	_missed_detection_ticks = 0
+
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
+	if not is_instance_valid(player) or bool(player.get("is_dead")):
+		_clear_aggro()
 	_cooldown = maxf(_cooldown - delta, 0.0)
 	if state == State.ATTACK:
 		_attack_elapsed += delta
 		_move_attack(delta)
 		_check_attack_damage()
 		return
-	if player_visible and is_instance_valid(player):
+	if has_aggro and is_instance_valid(player):
 		state = State.CHASE
 		var distance := global_position.distance_to(player.global_position)
 		if _cooldown <= 0.0 and distance <= attack_range:
@@ -108,7 +130,7 @@ func take_damage(amount: int) -> void:
 	is_dead = true
 	_health_bar.hide()
 	state = State.DEAD
-	player_visible = false
+	_clear_aggro()
 	velocity = Vector2.ZERO
 	collision_layer = 0
 	collision_mask = 0
@@ -197,7 +219,7 @@ func _on_animation_finished() -> void:
 		_attack_area = null
 		_cooldown = attack_cooldown
 		velocity = Vector2.ZERO
-		state = State.CHASE if player_visible else State.IDLE
+		state = State.CHASE if has_aggro else State.IDLE
 		_play(&"idle")
 
 

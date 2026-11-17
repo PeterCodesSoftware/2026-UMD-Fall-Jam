@@ -9,6 +9,7 @@ signal detection_tick
 enum RunState { WAITING, RUNNING, DYING, FINISHING, FINISHED, STOPPED }
 const START_ACTIONS: Array[StringName] = [&"Charge Jump", &"Charge Shot", &"Ball Form"]
 const DETECTION_INTERVAL: float = 0.5
+const ENEMY_INDICATORS = preload("res://game/base_level/enemy_indicators.gd")
 
 const VICTORY_TIME_SCALE: float = 0.3
 
@@ -30,9 +31,10 @@ var _owns_slow_motion: bool = false
 var _death_tween: Tween
 var _death_generation: int = 0
 var _start_hint: Label
+var _enemy_indicators: EnemyIndicators
 
 @onready var _time_label: Label = %TimeLabel
-@onready var _score_label: Label = %ScoreLabel
+@onready var _enemies_left_label: Label = %EnemiesLeftLabel
 
 
 func _ready() -> void:
@@ -45,6 +47,7 @@ func _ready() -> void:
 		enemy.death_finished.connect(_on_enemy_death_finished)
 	$Player.died.connect(_on_player_died)
 	_set_simulation(false)
+	_make_enemy_indicators()
 	_make_start_hint()
 	_update_hud()
 	# F6 remains useful when editing a level without the Main shell.
@@ -86,6 +89,9 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed(&"Respawn"):
 			get_viewport().set_input_as_handled()
 			get_tree().call_deferred("reload_current_scene")
+		elif event.is_action_pressed(&"Reveal Enemies"):
+			get_viewport().set_input_as_handled()
+			toggle_enemy_reveal()
 		else:
 			try_start(event)
 
@@ -112,12 +118,18 @@ func start_run() -> void:
 	$Player.begin_run()
 
 
+func toggle_enemy_reveal() -> void:
+	if can_pause() and not get_tree().paused:
+		_enemy_indicators.toggle_reveal()
+
+
 func stop_run() -> void:
 	_cancel_death_fade()
 	_restore_time_scale()
 	state = RunState.STOPPED
 	is_running = false
 	_start_armed = false
+	_enemy_indicators.set_revealed(false)
 	$Player.cancel_attack()
 	_set_simulation(false)
 
@@ -216,6 +228,7 @@ func _on_player_died() -> void:
 		return
 	state = RunState.DYING
 	is_running = false
+	_enemy_indicators.set_revealed(false)
 	_set_simulation(false)
 	_fade_player(true)
 
@@ -240,6 +253,13 @@ func _cancel_death_fade() -> void:
 	_death_tween = null
 
 
+func _make_enemy_indicators() -> void:
+	_enemy_indicators = ENEMY_INDICATORS.new()
+	_enemy_indicators.name = "EnemyIndicators"
+	$HUD.add_child(_enemy_indicators)
+	_enemy_indicators.setup(_enemies)
+
+
 func _make_start_hint() -> void:
 	_start_hint = Label.new()
 	_start_hint.text = "Press jump, shot, or ball to start"
@@ -259,7 +279,7 @@ func _make_start_hint() -> void:
 
 func _update_hud() -> void:
 	_time_label.text = "%.2fs" % elapsed_time
-	_score_label.text = "Score: %d" % score
+	_enemies_left_label.text = "Enemies left: %d" % _living.size()
 
 
 func _on_pause_pressed() -> void:

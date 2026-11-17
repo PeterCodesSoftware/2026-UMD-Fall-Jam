@@ -53,3 +53,12 @@ func record_completion(level_uid: int, elapsed_time: float, score: int) -> Error
 	if error != OK:
 		push_warning("Could not save level progress: " + error_string(error))
 	return error
+
+
+## Clear the entire progress save only after the settings confirmation.
+func reset_progress() -> Error:
+	var cleared := ConfigFile.new()
+	var error := cleared.save(_save_path)
+	if error == OK:
+		_data = cleared
+	return error

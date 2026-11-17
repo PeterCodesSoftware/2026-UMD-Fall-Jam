@@ -2,15 +2,23 @@
 
 [ext_resource type="Script" uid="uid://cw4am3dvq42fd" path="res://main/main.gd" id="1_0xm2m"]
 [ext_resource type="Resource" uid="uid://ddwa87hy4d7xc" path="res://game/level_manager/level_manager.tres" id="2_pjrb6"]
-[ext_resource type="PackedScene" path="res://game/pause_menu/pause_menu.tscn" id="3_pause"]
+[ext_resource type="PackedScene" uid="uid://b2gexpqbddwhh" path="res://game/pause_menu/pause_menu.tscn" id="3_pause"]
 [ext_resource type="PackedScene" path="res://finished_menu/finished_menu.tscn" id="4_finished"]
+
+[ext_resource type="PackedScene" path="res://main/menu_background.tscn" id="5_menu_background"]
 
 [node name="Main" type="Node" unique_id=1731743243]
 process_mode = 3
 script = ExtResource("1_0xm2m")
 level_manager = ExtResource("2_pjrb6")
 
+[node name="MenuBackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="MenuBackground" parent="MenuBackgroundLayer" instance=ExtResource("5_menu_background")]
+
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1985296257]
+bus = &"Music"
 
 [node name="PauseMenu" parent="." unique_id=1257811434 instance=ExtResource("3_pause")]
 

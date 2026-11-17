@@ -3,9 +3,11 @@ extends Resource
 
 @export var display_name: String = "NONE"
 @export var scene: PackedScene
-## Optional maximum times for one, two, and three stars (fastest).
+## Maximum finish time for one star (slowest target). Use -1 to disable.
 @export var star_1_time: float = -1.0
+## Maximum finish time for two stars (middle target).
 @export var star_2_time: float = -1.0
+## Maximum finish time for three stars (fastest target).
 @export var star_3_time: float = -1.0
 
 

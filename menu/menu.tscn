@@ -2,6 +2,14 @@
 
 [ext_resource type="Script" uid="uid://758nlh0ntvr2" path="res://menu/menu.gd" id="1_j0t7f"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_story"]
+bg_color = Color(0.025, 0.03, 0.055, 0.88)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.25, 0.36, 0.7)
+
 [node name="Menu" type="Control" unique_id=333514442]
 layout_mode = 3
 anchors_preset = 15
@@ -11,30 +19,66 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j0t7f")
 
+[node name="StoryPanel" type="PanelContainer" parent="." unique_id=1151754581]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 12.0
+offset_right = 160.0
+offset_bottom = -12.0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_story")
+
+[node name="Margin" type="MarginContainer" parent="StoryPanel" unique_id=1256810547]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 8
+
+[node name="StoryLabel" type="Label" parent="StoryPanel/Margin" unique_id=407937078]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 10
+text = "Far, far into the future (2027), human scientists have developed the blob. They have decided to test their new lethal weapon on the inhabitants of the moon."
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=897046617]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
+offset_left = -86.0
+offset_top = -43.0
+offset_right = -8.0
+offset_bottom = 43.0
+grow_horizontal = 0
 grow_vertical = 2
+theme_override_constants/separation = 6
+alignment = 1
 
 [node name="Play" type="Button" parent="VBoxContainer" unique_id=637542855]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+focus_mode = 0
 text = "Play"
 
 [node name="Options" type="Button" parent="VBoxContainer" unique_id=1489395685]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+focus_mode = 0
 text = "Options"
 
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=782789356]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+focus_mode = 0
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
